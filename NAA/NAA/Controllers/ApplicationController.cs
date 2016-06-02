@@ -6,6 +6,8 @@ using System.Web.Mvc;
 using NAA.Services.Service;
 using NAA.Services.IService;
 using NAA.Data;
+using NAA.Data.BEANS;
+
 namespace NAA.Controllers
 {
     public class ApplicationController : Controller
@@ -42,9 +44,15 @@ namespace NAA.Controllers
 
         //POST: Application/AddApplication
         [HttpPost]
-        public ActionResult AddApplication(Application application)
+        public ActionResult AddApplication(ApplicationFormBEAN application)
         {
+            // Save to Database, write function that accepts ApplicationFormBEAN
+            return RedirectToAction("Details", new { id = application.Id });
+        }
 
+        public ActionResult Details(int id)
+        {
+            return View(_applicationService.getApplicationById(id));
         }
     }
 }
