@@ -79,6 +79,7 @@ namespace NAA.Data.DAO
                                 select new ApplicationDetailsBEAN
                                 {
                                     Id = application.Id,
+                                    ApplicantId = applicant.Id,
                                     ApplicantName = applicant.ApplicantName,
                                     CourseName = application.CourseName,
                                     UniversityName = university.UniversityName,
