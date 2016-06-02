@@ -28,6 +28,16 @@ namespace NAA.Controllers
             return View(_applicationService.GetApplications());
         }
 
+        public ActionResult CheckApplicationCount(int applicantId)
+        {
+            IList<Application> applications = _applicationService.GetApplicationsByApplicantId(applicantId);
+            if (applications.Count < 5) {
+                return RedirectToAction("ChooseUniversity", new { applicantId = applicantId, Controller = "University" });
+            } else {
+                return RedirectToAction("ApplicationsByApplicantId", new { id = applicantId });
+            }
+        }
+
         // GET: Application/AddApplication
         public ActionResult AddApplication(int applicantId, int universityId)
         {

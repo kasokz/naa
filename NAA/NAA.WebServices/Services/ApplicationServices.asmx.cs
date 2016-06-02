@@ -49,8 +49,8 @@ namespace NAA.WebServices.Services
         public void AcceptApplication(int id)
         {
             Application application = _applicationService.GetApplicationById(id);
-            //Always possible except for Rejected Offer
-            if (application.UniversityOffer != "R")
+            //Only possible if application is in 'Pending'-state
+            if (application.UniversityOffer == "P")
             {
                 application.UniversityOffer = "U"; //Unconditional
                 _applicationService.EditApplication(application);
