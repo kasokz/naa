@@ -46,22 +46,40 @@ namespace NAA.Data.DAO
             return applicationResult.ToList();
         }
 
-        public IList<ApplicationBEAN> GetApplicationBEANsByApplicantId(int id)
+        public ApplicationDetailsBEAN GetApplicationDetailsBEANByApplicantId(int id)
         {
-            IQueryable<ApplicationBEAN> _ApplicationBEANs;
+            IQueryable<ApplicationDetailsBEAN> _ApplicationBEANs;
             _ApplicationBEANs = from application in _context.Application
                                 from applicant in _context.Applicant
                                 from university in _context.University
                                 where application.ApplicantId == id
                                 where applicant.Id == id
                                 where university.UniversityId == application.UniversityId
-                                select new ApplicationBEAN
+                                select new ApplicationDetailsBEAN
                                 {
                                     Id = application.Id,
                                     ApplicantName = applicant.ApplicantName,
                                     CourseName = application.CourseName,
                                     UniversityName = university.UniversityName,
                                     PersonalStatement = application.PersonalStatement,
+                                    UniversityOffer = application.UniversityOffer,
+                                    Firm = application.Firm
+                                };
+            return _ApplicationBEANs.First();
+        }
+
+        public IList<ApplicationListItemBEAN> GetApplicationListItemBEANsByApplicantId(int id)
+        {
+            IQueryable<ApplicationListItemBEAN> _ApplicationBEANs;
+            _ApplicationBEANs = from application in _context.Application
+                                from university in _context.University
+                                where application.ApplicantId == id
+                                where university.UniversityId == application.UniversityId
+                                select new ApplicationListItemBEAN
+                                {
+                                    Id = application.Id,
+                                    UniversityName = university.UniversityName,
+                                    CourseName = application.CourseName,
                                     UniversityOffer = application.UniversityOffer,
                                     Firm = application.Firm
                                 };

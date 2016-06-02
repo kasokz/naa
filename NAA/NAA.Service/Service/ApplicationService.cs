@@ -34,9 +34,14 @@ namespace NAA.Services.Service
             return _applicationDAO.GetApplicationsByApplicantId(id);
         }
 
-        public IList<ApplicationBEAN> GetApplicationBEANsByApplicantId(int id)
+        public ApplicationDetailsBEAN GetApplicationDetailsBEANByApplicantId(int id)
         {
-            return _applicationDAO.GetApplicationBEANsByApplicantId(id);
+            return _applicationDAO.GetApplicationDetailsBEANByApplicantId(id);
+        }
+
+        public IList<ApplicationListItemBEAN> GetApplicationListItemBEANSByApplicantId(int id)
+        {
+            return _applicationDAO.GetApplicationListItemBEANsByApplicantId(id);
         }
 
         public void AddApplication(Application application)

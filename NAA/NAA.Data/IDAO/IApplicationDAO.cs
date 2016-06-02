@@ -16,7 +16,9 @@ namespace NAA.Data.IDAO
 
         IList<Application> GetApplicationsByApplicantId(int id);
 
-        IList<ApplicationBEAN> GetApplicationBEANsByApplicantId(int id);
+        ApplicationDetailsBEAN GetApplicationDetailsBEANByApplicantId(int id);
+
+        IList<ApplicationListItemBEAN> GetApplicationListItemBEANsByApplicantId(int id);
 
         void AddApplication(Application application);
 
