@@ -46,5 +46,5 @@
 </div>
 <p>
     @Html.ActionLink("Edit", "EditApplicant", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("My Applications", "ApplicationsByApplicantId", new { id = Model.Id, Controller = "Application" })
 </p>
