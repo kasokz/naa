@@ -44,6 +44,19 @@ namespace NAA.Services.Service
             _applicationDAO.AddApplication(application);
         }
 
+        public void AddApplication(ApplicationFormBEAN application, int applicantId)
+        {
+            Application result = new Application();
+            result.CourseName = application.CourseName;
+            result.Firm = false;
+            result.PersonalStatement = application.PersonalStatement;
+            result.TeacherContactDetails = application.TeacherContacts;
+            result.UniversityId = application.UniversityId;
+            result.UniversityOffer = "P";
+            result.ApplicantId = applicantId;
+            _applicationDAO.AddApplication(result);
+        }
+
         public void DeleteApplicationById(int id)
         {
             _applicationDAO.DeleteApplicationById(id);

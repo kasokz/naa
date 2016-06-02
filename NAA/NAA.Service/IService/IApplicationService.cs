@@ -20,6 +20,8 @@ namespace NAA.Services.IService
 
         void AddApplication(Application application);
 
+        void AddApplication(ApplicationFormBEAN application);
+
         void DeleteApplicationById(int id);
 
         void EditApplication(Application application);
