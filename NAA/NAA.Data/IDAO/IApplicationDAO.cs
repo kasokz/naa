@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace NAA.Data.IDAO
 {
-    interface IApplicationDAO
+    public interface IApplicationDAO
     {
+        IList<Application> GetApplications();
+
+        Application GetApplicationById(int id);
+
+        void AddApplication(Application application);
+
+        void DeleteApplicationById(int id);
+
+        void EditApplication(Application application);
     }
 }

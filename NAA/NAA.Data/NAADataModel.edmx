@@ -24,7 +24,7 @@
           <Property Name="CourseName" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="UniversityId" Type="int" Nullable="false" />
           <Property Name="PersonalStatement" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="TeacherReference" Type="nvarchar(max)" />
+          <Property Name="TeacherReference" Type="nvarchar(max)" Nullable="false" />
           <Property Name="TeacherContactDetails" Type="nvarchar(max)" Nullable="false" />
           <Property Name="UniversityOffer" Type="char" MaxLength="1" />
           <Property Name="Firm" Type="bit" />
@@ -65,7 +65,7 @@
           <Property Name="CourseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UniversityId" Type="Int32" Nullable="false" />
           <Property Name="PersonalStatement" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TeacherReference" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TeacherReference" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="TeacherContactDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UniversityOffer" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Firm" Type="Boolean" />
