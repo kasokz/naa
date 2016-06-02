@@ -7,6 +7,7 @@ using NAA.Services.Service;
 using NAA.Services.IService;
 using NAA.Data;
 using NAA.Data.BEANS;
+using University.Services.Service;
 
 namespace NAA.Controllers
 {
@@ -30,8 +31,18 @@ namespace NAA.Controllers
         // GET: Application/AddApplication
         public ActionResult AddApplication(int applicantId, int universityId)
         {
+            IList<SelectListItem> courseList = new List<SelectListItem>();
+            foreach (var item in University.Services.Service.CourseServiceFactory.getInstance().createCourseService(universityId).GetAllCoursesShort())
+            {
+                courseList.Add(
+                    new SelectListItem()
+                    {
+                        Text = item.Name,
+                        Value = item.Name
+                    });
+            }
+            ViewBag.courseList = courseList;
             ViewBag.universityName = _universityService.GetUniversityById(universityId).UniversityName;
-            University.Services.Service.
             return View();
         }
 
