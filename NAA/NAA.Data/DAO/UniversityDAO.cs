@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAA.Data.IDAO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,15 +7,8 @@ using System.Threading.Tasks;
 
 namespace NAA.Data.DAO
 {
-    public class UniversityDAO
+    public class UniversityDAO : NAADAO, IUniversityDAO
     {
-        private NAAEntities _context;
-
-        public UniversityDAO()
-        {
-            _context = new NAAEntities();
-        }
-
         public IList<University> GetUniversity()
         {
             IQueryable<University> _universities;
