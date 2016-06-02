@@ -13,6 +13,6 @@ namespace NAA.Services.IService
         void DeleteApplicantById(int id);
         void EditApplicant(Applicant applicant);
         Applicant GetApplicantById(int id);
-
+        IList<Applicant> GetApplicants();
     }
 }

@@ -14,26 +14,35 @@ namespace NAA.Services.Service
     public class ApplicantService :IApplicantService
     {
         private IApplicantDAO _applicantDAO;
+
         public ApplicantService ()
         {
             _applicantDAO = new ApplicantDAO();
         }
+
         public void AddApplicant(Applicant applicant)
         {
             _applicantDAO.AddApplicant(applicant);
         }
+
         public void DeleteApplicantById(int id)
         {
             _applicantDAO.DeleteApplicantById(id);
         }
+
         public void EditApplicant(Applicant applicant)
         {
             _applicantDAO.EditApplicant(applicant);
         }
+
         public Applicant GetApplicantById(int id)
         {
             return _applicantDAO.GetApplicantById(id);
         }
 
+        public IList<Applicant> GetApplicants()
+        {
+            return _applicantDAO.GetApplicants();
+        }
     }
 }
