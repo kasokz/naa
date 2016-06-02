@@ -10,9 +10,10 @@ namespace NAA.Data.DAO
     {
         private NAAEntities _context;
 
-        public UniversityDAO() {
+        public UniversityDAO()
+        {
             _context = new NAAEntities();
-        } 
+        }
 
         public IList<University> GetUniversity()
         {
