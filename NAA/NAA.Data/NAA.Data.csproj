@@ -54,7 +54,6 @@
     <Compile Include="Application.cs">
       <DependentUpon>NAADataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Class1.cs" />
     <Compile Include="IDAO\IApplicantDAO.cs" />
     <Compile Include="IDAO\IApplicationDAO.cs" />
     <Compile Include="IDAO\IUniversityDAO.cs" />
