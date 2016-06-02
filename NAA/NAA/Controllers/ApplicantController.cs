@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using NAA.Services.IService;
 using NAA.Services.Service;
+using NAA.Data;
 
 
 namespace NAA.Controllers
@@ -12,10 +13,12 @@ namespace NAA.Controllers
     public class ApplicantController : Controller
     {
         private IApplicantService _applicantService;
-        public ApplicantController ()
+
+        public ApplicantController()
         {
             _applicantService = new ApplicantService();
         }
+
         // GET: Applicant
         public ActionResult Index()
         {
@@ -28,26 +31,18 @@ namespace NAA.Controllers
             return View();
         }
 
-        // GET: Applicant/Create
-        public ActionResult Create()
+        // GET: Applicant/AddApplicant
+        [HttpGet]
+        public ActionResult AddApplicant()
         {
             return View();
         }
 
-        // POST: Applicant/Create
+        // POST: Applicant/AddApplicant
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult AddApplicant(Applicant applicant)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            return View();
         }
 
         // GET: Applicant/Edit/5
