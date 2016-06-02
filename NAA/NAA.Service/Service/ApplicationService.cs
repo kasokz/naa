@@ -19,12 +19,12 @@ namespace NAA.Services.Service
             _applicationDAO = new ApplicationDAO();
         }
 
-        public IList<Application> getApplications()
+        public IList<Application> GetApplications()
         {
             return _applicationDAO.GetApplications();
         }
 
-        public Application getApplicationById(int id)
+        public Application GetApplicationById(int id)
         {
             return _applicationDAO.GetApplicationById(id);
         }
@@ -32,6 +32,11 @@ namespace NAA.Services.Service
         public IList<Application> GetApplicationsByApplicantId(int id)
         {
             return _applicationDAO.GetApplicationsByApplicantId(id);
+        }
+
+        public IList<ApplicationBEAN> GetApplicationsByUniversityName(string name)
+        {
+            return _applicationDAO.GetApplicationsByUniversityName(name);
         }
 
         public ApplicationDetailsBEAN GetApplicationDetailsBEANById(int id)

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NAA.Data.BEANS;
+using NAA.Services.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,10 +18,16 @@ namespace NAA.WebServices.Services
     // [System.Web.Script.Services.ScriptService]
     public class ApplicationServices : System.Web.Services.WebService
     {
+        private ApplicationService _applicationService;
+
+        public ApplicationServices()
+        {
+            _applicationService = new ApplicationService();
+        }
 
         [WebMethod]
-        public List<ApplicationBEAN> GetApplicationsByUniversityId(int id) {
-
+        public List<ApplicationBEAN> GetApplicationsByUniversityName(string name) {
+            return new List<ApplicationBEAN>(_applicationService.GetApplicationsByUniversityName(name));
         }
     }
 }

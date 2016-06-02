@@ -22,7 +22,7 @@ namespace NAA.Controllers
         // GET: Application
         public ActionResult Index()
         {
-            return View(_applicationService.getApplications());
+            return View(_applicationService.GetApplications());
         }
 
         // GET: Application/AddApplication

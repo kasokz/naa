@@ -16,6 +16,8 @@ namespace NAA.Data.IDAO
 
         IList<Application> GetApplicationsByApplicantId(int id);
 
+        IList<ApplicationBEAN> GetApplicationsByUniversityName(string name);
+
         ApplicationDetailsBEAN GetApplicationDetailsBEANById(int id);
 
         IList<ApplicationListItemBEAN> GetApplicationListItemBEANsByApplicantId(int id);
