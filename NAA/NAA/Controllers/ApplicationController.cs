@@ -54,5 +54,9 @@ namespace NAA.Controllers
         {
             return View(_applicationService.getApplicationById(id));
         }
+        public ActionResult ApplicationsByApplicantId(int id)
+        {
+            return View(_applicationService.GetApplicationsByApplicantId(id));
+        }
     }
 }
