@@ -45,15 +45,15 @@ namespace NAA.Controllers
             return View();
         }
 
-        // GET: Applicant/Edit/5
-        public ActionResult Edit(int id)
+        // GET: Applicant/EditApplicant/5
+        public ActionResult EditApplicant(int id)
         {
             return View();
         }
 
-        // POST: Applicant/Edit/5
+        // POST: Applicant/EditApplicant/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult EditApplicant(int id, FormCollection collection)
         {
             try
             {

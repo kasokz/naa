@@ -22,5 +22,7 @@ namespace NAA.Controllers
         {
             return View(_applicationService.getApplications());
         }
+
+
     }
 }
