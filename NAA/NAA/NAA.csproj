@@ -260,6 +260,10 @@
       <Project>{1e76f627-b264-4588-bdb5-2df35f45cb01}</Project>
       <Name>NAA.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\University.Services\University.Services.csproj">
+      <Project>{f8f7ff5e-343a-4bef-b8d8-d32bdc302332}</Project>
+      <Name>University.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

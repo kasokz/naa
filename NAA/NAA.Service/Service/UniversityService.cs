@@ -15,22 +15,22 @@ namespace NAA.Services.Service
         private IUniversityDAO _university;
         public UniversityService() { _university = new UniversityDAO(); }
 
-        public IList<University> GetUniversities()
+        public IList<NAA.Data.University> GetUniversities()
         {
             return _university.GetUniversity();
         }
 
-        public University GetUniversityById(int id)
+        public NAA.Data.University GetUniversityById(int id)
         {
             return _university.GetUniversityById(id);
         }
 
-        public void EditUniversity(University university)
+        public void EditUniversity(NAA.Data.University university)
         {
             _university.EditUniversity(university);
         }
 
-        public void AddUniversity(University university)
+        public void AddUniversity(NAA.Data.University university)
         {
             _university.AddUniversity(university);
         }

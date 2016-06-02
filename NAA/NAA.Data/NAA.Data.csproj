@@ -58,6 +58,8 @@
     <Compile Include="BEANS\ApplicationDetailsBEAN.cs" />
     <Compile Include="BEANS\ApplicationFormBEAN.cs" />
     <Compile Include="BEANS\ApplicationListItemBEAN.cs" />
+    <Compile Include="BEANS\CourseFullBEAN.cs" />
+    <Compile Include="BEANS\CourseShortBEAN.cs" />
     <Compile Include="DAO\ApplicantDAO.cs" />
     <Compile Include="DAO\ApplicationDAO.cs" />
     <Compile Include="DAO\NAADAO.cs" />

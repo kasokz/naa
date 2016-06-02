@@ -9,13 +9,13 @@ namespace NAA.Services.IService
 {
     public interface IUniversityService
     {
-        IList<University> GetUniversities();
+        IList<NAA.Data.University> GetUniversities();
 
-        University GetUniversityById(int id);
+        NAA.Data.University GetUniversityById(int id);
 
-        void EditUniversity(University university);
+        void EditUniversity(NAA.Data.University university);
 
-        void AddUniversity(University university);
+        void AddUniversity(NAA.Data.University university);
 
         void DeleteUniversityById(int id);
     }

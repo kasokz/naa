@@ -13,6 +13,7 @@ namespace NAA.Controllers
     public class ApplicationController : Controller
     {
         private IApplicationService _applicationService;
+        private IUniversityService _universityService;
 
         public ApplicationController()
         {
@@ -29,7 +30,7 @@ namespace NAA.Controllers
         public ActionResult AddApplication(int applicantId)
         {
             IList<SelectListItem> universityList = new List<SelectListItem>();
-            foreach (var item in new List<University>())
+            foreach (var item in _universityService.GetUniversities())
             {
                 universityList.Add(
                     new SelectListItem()
