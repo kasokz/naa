@@ -22,12 +22,21 @@ namespace NAA.Controllers
         // GET: Applicant
         public ActionResult Index()
         {
-            return View();
+            ActionResult result;
+            if(_applicantService.GetApplicants().Count() == 0)
+            {
+               result = RedirectToAction("AddApplicant");
+            } else 
+            {
+                Applicant applicant = _applicantService.GetApplicants().First();
+                result = RedirectToAction("Details", new { id = applicant.Id });
+            }
+            return result;
         }
 
         // GET: Applicant/Details/5
         public ActionResult Details(int id)
-        {          
+        {
             return View(_applicantService.GetApplicantById(id));
         }
 
@@ -43,7 +52,7 @@ namespace NAA.Controllers
         public ActionResult AddApplicant(Applicant applicant)
         {
             _applicantService.AddApplicant(applicant);
-            return RedirectToAction("Details", new { id = applicant.Id});
+            return RedirectToAction("Details", new { id = applicant.Id });
         }
 
         // GET: Applicant/EditApplicant/5

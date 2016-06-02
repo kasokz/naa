@@ -64,5 +64,19 @@ namespace NAA.Controllers
             ViewBag.applicantId = id;
             return View(_applicationService.GetApplicationListItemBEANSByApplicantId(id));
         }
+
+        [HttpGet]
+        public ActionResult DeleteApplicationById(int id)
+        {
+            return View(_applicationService.GetApplicationDetailsBEANById(id));
+        }
+
+        [HttpPost]
+        public ActionResult DeleteApplicationById(ApplicationDetailsBEAN applicationBEAN)
+        {
+            string applicantId = applicationBEAN.ApplicantName;
+            _applicationService.DeleteApplicationById(applicationBEAN.Id);
+            return RedirectToAction("ApplicationsByApplicantId", new { id = applicantId });
+        }
     }
 }
