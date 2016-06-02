@@ -54,6 +54,9 @@
     <Compile Include="Application.cs">
       <DependentUpon>NAADataModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DAO\ApplicantDAO.cs" />
+    <Compile Include="DAO\ApplicationDAO.cs" />
+    <Compile Include="DAO\NAADAO.cs" />
     <Compile Include="IDAO\IApplicantDAO.cs" />
     <Compile Include="IDAO\IApplicationDAO.cs" />
     <Compile Include="IDAO\IUniversityDAO.cs" />
@@ -79,7 +82,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="BEANS\" />
-    <Folder Include="DAO\" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="NAADataModel.edmx">
