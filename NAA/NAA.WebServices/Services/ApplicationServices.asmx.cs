@@ -27,7 +27,8 @@ namespace NAA.WebServices.Services
         }
 
         [WebMethod]
-        public List<ApplicationBEAN> GetApplicationsByUniversityName(string name) {
+        public List<ApplicationBEAN> GetApplicationsByUniversityName(string name)
+        {
             return new List<ApplicationBEAN>(_applicationService.GetApplicationsByUniversityName(name));
         }
 
