@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using NAA.Data;
 
-namespace NAA.Service.IService
+namespace NAA.Services.IService
 {
     public interface IApplicantService
     {

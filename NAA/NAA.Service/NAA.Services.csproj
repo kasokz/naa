@@ -7,8 +7,8 @@
     <ProjectGuid>{1E76F627-B264-4588-BDB5-2DF35F45CB01}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NAA.Service</RootNamespace>
-    <AssemblyName>NAA.Service</AssemblyName>
+    <RootNamespace>NAA.Services</RootNamespace>
+    <AssemblyName>NAA.Services</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

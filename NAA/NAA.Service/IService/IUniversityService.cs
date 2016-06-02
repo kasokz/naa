@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NAA.Service.IService
+namespace NAA.Services.IService
 {
     public interface IUniversityService
     {

@@ -1,14 +1,14 @@
 ﻿using NAA.Data;
 using NAA.Data.DAO;
 using NAA.Data.IDAO;
-using NAA.Service.IService;
+using NAA.Services.IService;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NAA.Service.Service
+namespace NAA.Services.Service
 {
     public class UniversityService : IUniversityService
     {
