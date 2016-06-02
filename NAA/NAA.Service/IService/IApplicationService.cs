@@ -16,7 +16,7 @@ namespace NAA.Services.IService
 
         IList<Application> GetApplicationsByApplicantId(int id);
 
-        ApplicationDetailsBEAN GetApplicationDetailsBEANByApplicantId(int id);
+        ApplicationDetailsBEAN GetApplicationDetailsBEANById(int id);
 
         IList<ApplicationListItemBEAN> GetApplicationListItemBEANSByApplicantId(int id);
 

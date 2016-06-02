@@ -46,14 +46,14 @@ namespace NAA.Data.DAO
             return applicationResult.ToList();
         }
 
-        public ApplicationDetailsBEAN GetApplicationDetailsBEANByApplicantId(int id)
+        public ApplicationDetailsBEAN GetApplicationDetailsBEANById(int id)
         {
             IQueryable<ApplicationDetailsBEAN> _ApplicationBEANs;
             _ApplicationBEANs = from application in _context.Application
                                 from applicant in _context.Applicant
                                 from university in _context.University
-                                where application.ApplicantId == id
-                                where applicant.Id == id
+                                where applicant.Id == application.ApplicantId
+                                where application.Id == id
                                 where university.UniversityId == application.UniversityId
                                 select new ApplicationDetailsBEAN
                                 {
