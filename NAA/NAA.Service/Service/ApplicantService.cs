@@ -18,9 +18,22 @@ namespace NAA.Service.Service
         {
             _applicantDAO = new ApplicantDAO();
         }
-        void AddApplicant(Applicant applicant)
+        public void AddApplicant(Applicant applicant)
         {
-
+            _applicantDAO.AddApplicant(applicant);
         }
+        public void DeleteApplicantById(int id)
+        {
+            _applicantDAO.DeleteApplicantById(id);
+        }
+        void EditApplicant(Applicant applicant)
+        {
+            _applicantDAO.EditApplicant(applicant);
+        }
+        void GetApplicantById(int id)
+        {
+            _applicantDAO.GetApplicantById(id);
+        }
+
     }
 }
