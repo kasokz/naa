@@ -49,6 +49,7 @@ namespace NAA.Data.DAO
                                 from university in _context.University
                                 where university.UniversityName == name
                                 where application.UniversityId == university.UniversityId
+                                where applicant.Id == application.ApplicantId
                                 select new ApplicationBEAN
                                 {
                                     Id = application.Id,
