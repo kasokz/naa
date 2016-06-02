@@ -12,7 +12,7 @@ namespace NAA.Data.DAO
 
         public UniversityDAO() {
             _context = new NAAEntities();
-        }
+        } 
 
         public IList<University> GetUniversity()
         {
