@@ -52,7 +52,7 @@ namespace NAA.Controllers
 
         public ActionResult Details(int id)
         {
-            return View(_applicationService.GetApplicationDetailsBEANByApplicantId(id));
+            return View(_applicationService.GetApplicationDetailsBEANById(id));
         }
 
         public ActionResult ApplicationsByApplicantId(int id)
