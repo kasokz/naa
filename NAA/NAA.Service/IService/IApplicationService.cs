@@ -1,4 +1,5 @@
 ﻿using NAA.Data;
+using NAA.Data.BEANS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace NAA.Services.IService
         Application getApplicationById(int id);
 
         IList<Application> GetApplicationsByApplicantId(int id);
+
+        IList<ApplicationBEAN> GetApplicationBEANsByApplicantId(int id);
 
         void AddApplication(Application application);
 

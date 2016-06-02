@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using NAA.Services.IService;
 using NAA.Data.DAO;
 using NAA.Data;
+using NAA.Data.BEANS;
 
 namespace NAA.Services.Service
 {
@@ -29,6 +30,11 @@ namespace NAA.Services.Service
         }
 
         public IList<Application> GetApplicationsByApplicantId(int id)
+        {
+            return _applicationDAO.GetApplicationsByApplicantId(id);
+        }
+
+        public IList<ApplicationBEAN> GetApplicationBEANsByApplicantId(int id)
         {
             return _applicationDAO.GetApplicationBEANsByApplicantId(id);
         }
