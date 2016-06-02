@@ -10,6 +10,8 @@ namespace NAA.Service.IService
 {
     public interface IApplicationService
     {
+        IList<Application> getApplications();
+
         Application getApplicationById(int id);
 
         void AddApplication(Application application);
