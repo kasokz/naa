@@ -9,7 +9,6 @@ namespace NAA.Data.DAO
 {
     public class ApplicantDAO : NAADAO, IApplicantDAO
     {
-
         public IList<Applicant> GetApplicants()
         {
             IQueryable<Applicant> allApplicants = from applicants
@@ -42,7 +41,7 @@ namespace NAA.Data.DAO
         public void EditApplicant(Applicant applicant)
         {
             Applicant currentApplicant = (from currApplicant
-                                             in _context.Applicant
+                                          in _context.Applicant
                                           where currApplicant.Id == applicant.Id
                                           select currApplicant).First();
             currentApplicant.ApplicantAddress = applicant.ApplicantAddress;

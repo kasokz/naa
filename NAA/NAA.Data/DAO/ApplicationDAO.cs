@@ -10,21 +10,14 @@ using System.Diagnostics;
 
 namespace NAA.Data.DAO
 {
-    public class ApplicationDAO : IApplicationDAO
+    public class ApplicationDAO : NAADAO, IApplicationDAO
     {
-        private NAAEntities _context;
-
-        public ApplicationDAO()
-        {
-            _context = new NAAEntities();
-        }
-
         public IList<Application> GetApplications()
         {
             IQueryable<Application> allApplications;
             allApplications = from applications
-                            in _context.Application
-                            select applications;
+                              in _context.Application
+                              select applications;
             return allApplications.ToList<Application>();
         }
 
