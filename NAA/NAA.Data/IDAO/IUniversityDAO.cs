@@ -8,14 +8,14 @@ namespace NAA.Data.IDAO
 {
     public interface IUniversityDAO
     {
-        public IList<University> GetUniversity();
+        IList<University> GetUniversity();
 
-        public University GetUniversityById(int id);
+        University GetUniversityById(int id);
 
-        public void AddUniversity(University university);
+        void AddUniversity(University university);
 
-        public void EditUniversity(University university);
+        void EditUniversity(University university);
 
-        public void DeleteUniversityById(int id);
+        void DeleteUniversityById(int id);
     }
 }
