@@ -22,12 +22,6 @@ namespace NAA.Controllers
             _universityService = new UniversityService();
         }
 
-        // GET: Application
-        public ActionResult Index()
-        {
-            return View(_applicationService.GetApplications());
-        }
-
         public ActionResult CheckApplicationCount(int applicantId)
         {
             IList<Application> applications = _applicationService.GetApplicationsByApplicantId(applicantId);
@@ -53,6 +47,7 @@ namespace NAA.Controllers
             }
             ViewBag.courseList = courseList;
             ViewBag.universityName = _universityService.GetUniversityById(universityId).UniversityName;
+            ViewBag.applicantId = applicantId;
             return View();
         }
 
@@ -118,14 +113,23 @@ namespace NAA.Controllers
         public ActionResult InitFirm(int id) {
             ApplicationDetailsBEAN applicationBEAN = _applicationService.GetApplicationDetailsBEANById(id);
             ActionResult result= null;
-            foreach(var item in _applicationService.GetApplicationsByApplicantId(applicationBEAN.ApplicantId)) {
-                if(item.Firm == true) {
-                    result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
+            if (applicationBEAN.UniversityOffer == "C" || applicationBEAN.UniversityOffer == "U")
+            {
+                foreach (var item in _applicationService.GetApplicationsByApplicantId(applicationBEAN.ApplicantId))
+                {
+                    if (item.Firm == true)
+                    {
+                        result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
+                    }
+                }
+                if (result == null)
+                {
+                    result = View(applicationBEAN);
                 }
             }
-            if (result != null)
+            else
             {
-                result = View(applicationBEAN);
+                result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
             }
             return result;
         }
@@ -133,7 +137,7 @@ namespace NAA.Controllers
         public ActionResult FirmApplication(int id)
         {
             _applicationService.FirmApplication(id);
-            return RedirectToAction("ApplicationsByApplicantId", new { id = id });
+            return RedirectToAction("ApplicationsByApplicantId", new { id = _applicationService.GetApplicationById(id).ApplicantId });
         }
     }
 }
