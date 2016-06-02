@@ -57,6 +57,7 @@
     <Compile Include="DAO\ApplicantDAO.cs" />
     <Compile Include="DAO\ApplicationDAO.cs" />
     <Compile Include="DAO\NAADAO.cs" />
+    <Compile Include="DAO\UniversityDAO.cs" />
     <Compile Include="IDAO\IApplicantDAO.cs" />
     <Compile Include="IDAO\IApplicationDAO.cs" />
     <Compile Include="IDAO\IUniversityDAO.cs" />
