@@ -12,9 +12,9 @@ namespace NAA.Data.BEANS
 
         public string ApplicantName { get; set; }
 
-        public string CourseName { get; set; }
-
         public string UniversityName { get; set; }
+
+        public string CourseName { get; set; }
 
         public string PersonalStatement { get; set; }
 

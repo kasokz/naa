@@ -57,7 +57,8 @@ namespace NAA.Controllers
 
         public ActionResult ApplicationsByApplicantId(int id)
         {
-            return View(_applicationService.GetApplicationsByApplicantId(id));
+            ViewBag.applicantId = id;
+            return View(_applicationService.GetApplicationBEANsByApplicantId(id));
         }
     }
 }

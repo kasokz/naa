@@ -54,18 +54,10 @@ namespace NAA.Controllers
 
         // POST: Applicant/EditApplicant/5
         [HttpPost]
-        public ActionResult EditApplicant(int id, FormCollection collection)
+        public ActionResult EditApplicant(Applicant applicant)
         {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            _applicantService.EditApplicant(applicant);
+            return RedirectToAction("Details", new { id = applicant.Id });
         }
 
         // GET: Applicant/Delete/5
