@@ -16,7 +16,7 @@ namespace NAA
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "University", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Applicant", action = "AddApplicant", id = UrlParameter.Optional }
             );
         }
     }
