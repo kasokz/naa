@@ -29,5 +29,7 @@ namespace NAA.Services.IService
         void DeleteApplicationById(int id);
 
         void EditApplication(Application application);
+
+        void FirmApplication(int id);
     }
 }

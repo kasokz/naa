@@ -76,5 +76,12 @@ namespace NAA.Services.Service
         {
             _applicationDAO.EditApplication(application);
         }
+
+        public void FirmApplication(int id)
+        {
+            Application application = _applicationDAO.GetApplicationById(id);
+            application.Firm = true;
+            EditApplication(application);
+        }
     }
 }
