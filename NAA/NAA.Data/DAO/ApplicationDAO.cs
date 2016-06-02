@@ -33,12 +33,37 @@ namespace NAA.Data.DAO
 
         public IList<Application> GetApplicationsByApplicantId(int id)
         {
-            IQueryable<Application> applicationResult;
-            applicationResult = from application
+            IQueryable<Application> _applicationResult;
+            _applicationResult = from application
                                 in _context.Application
                                 where application.ApplicantId == id
                                 select application;
-            return applicationResult.ToList();
+            return _applicationResult.ToList();
+        }
+
+        public IList<ApplicationBEAN> GetApplicationsByUniversityName(string name)
+        {
+            IQueryable<ApplicationBEAN> _applicationBEANs;
+            _applicationBEANs = from application in _context.Application
+                                from applicant in _context.Applicant
+                                from university in _context.University
+                                where university.UniversityName == name
+                                where application.UniversityId == university.UniversityId
+                                select new ApplicationBEAN
+                                {
+                                    Id = application.Id,
+                                    ApplicantName = applicant.ApplicantName,
+                                    ApplicantAddress = applicant.ApplicantAddress,
+                                    ApplicantPhone = applicant.Phone,
+                                    ApplicantEmail = applicant.Email,
+                                    CourseName = application.CourseName,
+                                    PersonalStatement = application.PersonalStatement,
+                                    TeacherReference = application.TeacherReference,
+                                    TeacherContactDetails = application.TeacherContactDetails,
+                                    UniversityOffer = application.UniversityOffer,
+                                    Firm = application.Firm
+                                };
+            return _applicationBEANs.ToList();
         }
 
         public ApplicationDetailsBEAN GetApplicationDetailsBEANById(int id)

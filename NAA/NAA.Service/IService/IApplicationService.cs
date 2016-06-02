@@ -10,11 +10,13 @@ namespace NAA.Services.IService
 {
     public interface IApplicationService
     {
-        IList<Application> getApplications();
+        IList<Application> GetApplications();
 
-        Application getApplicationById(int id);
+        Application GetApplicationById(int id);
 
         IList<Application> GetApplicationsByApplicantId(int id);
+
+        IList<ApplicationBEAN> GetApplicationsByUniversityName(string name);
 
         ApplicationDetailsBEAN GetApplicationDetailsBEANById(int id);
 

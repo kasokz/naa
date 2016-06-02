@@ -1,9 +1,11 @@
 ﻿using NAA.Data.BEANS;
+using NAA.Services.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Services;
+using NAA.Data;
 
 namespace NAA.WebServices.Services
 {
@@ -17,10 +19,42 @@ namespace NAA.WebServices.Services
     // [System.Web.Script.Services.ScriptService]
     public class ApplicationServices : System.Web.Services.WebService
     {
+        private ApplicationService _applicationService;
+
+        public ApplicationServices()
+        {
+            _applicationService = new ApplicationService();
+        }
 
         [WebMethod]
-        public List<ApplicationBEAN> GetApplicationsByUniversityId(int id) {
+        public List<ApplicationBEAN> GetApplicationsByUniversityName(string name) {
+            return new List<ApplicationBEAN>(_applicationService.GetApplicationsByUniversityName(name));
+        }
 
+        [WebMethod]
+        public void RejectApplication(int id, string reason)
+        {
+            Application application = _applicationService.GetApplicationById(id);
+            application.UniversityOffer = "R"; //Rejected
+            application.TeacherReference = reason;
+            _applicationService.EditApplication(application);
+        }
+
+        [WebMethod]
+        public void AcceptApplication(int id)
+        {
+            Application application = _applicationService.GetApplicationById(id);
+            application.UniversityOffer = "U"; //Unconditional
+            _applicationService.EditApplication(application);
+        }
+
+        [WebMethod]
+        public void AcceptApplicationWithCondition(int id, string condition)
+        {
+            Application application = _applicationService.GetApplicationById(id);
+            application.UniversityOffer = "C"; //Conditional
+            application.TeacherReference = condition;
+            _applicationService.EditApplication(application);
         }
     }
 }
