@@ -75,18 +75,54 @@ namespace NAA.Controllers
             return View(_applicationService.GetApplicationListItemBEANSByApplicantId(id));
         }
 
+        public ActionResult InitDelete(int id)
+        {
+            ApplicationDetailsBEAN applicationBEAN = _applicationService.GetApplicationDetailsBEANById(id);
+            ActionResult result;
+            if (applicationBEAN.UniversityOffer == "U" || applicationBEAN.UniversityOffer == "C" || applicationBEAN.Firm == true)
+            {
+                result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
+            }
+            else
+            {
+                result = RedirectToAction("DeleteApplication", new { id = id });
+            }
+            return result;
+        }
+
         [HttpGet]
-        public ActionResult DeleteApplicationById(int id)
+        public ActionResult DeleteApplication(int id)
         {
             return View(_applicationService.GetApplicationDetailsBEANById(id));
         }
 
         [HttpPost]
-        public ActionResult DeleteApplicationById(ApplicationDetailsBEAN applicationBEAN)
+        public ActionResult DeleteApplication(ApplicationDetailsBEAN applicationBEAN)
         {
-            string applicantId = applicationBEAN.ApplicantName;
+            int applicantId = _applicationService.GetApplicationDetailsBEANById(applicationBEAN.Id).ApplicantId;
             _applicationService.DeleteApplicationById(applicationBEAN.Id);
             return RedirectToAction("ApplicationsByApplicantId", new { id = applicantId });
+        }
+
+        public ActionResult InitFirm(int id) {
+            ApplicationDetailsBEAN applicationBEAN = _applicationService.GetApplicationDetailsBEANById(id);
+            ActionResult result= null;
+            foreach(var item in _applicationService.GetApplicationsByApplicantId(applicationBEAN.ApplicantId)) {
+                if(item.Firm == true) {
+                    result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
+                }
+            }
+            if (result != null)
+            {
+                result = View(applicationBEAN);
+            }
+            return result;
+        }
+
+        public ActionResult FirmApplication(int id)
+        {
+            _applicationService.FirmApplication(id);
+            return RedirectToAction("ApplicationsByApplicantId", new { id = id });
         }
     }
 }

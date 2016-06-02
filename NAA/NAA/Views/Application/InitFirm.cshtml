@@ -1,15 +1,23 @@
 ﻿@model NAA.Data.BEANS.ApplicationDetailsBEAN
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "InitFirm";
 }
 
-<h2>Application Details</h2>
+<h2>InitFirm</h2>
 
 <div>
     <h4>ApplicationDetailsBEAN</h4>
     <hr />
     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ApplicantId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ApplicantId)
+        </dd>
+
         <dt>
             @Html.DisplayNameFor(model => model.ApplicantName)
         </dt>
@@ -60,8 +68,8 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Delete", "InitDelete", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<div class="col-md-10 col-md-offset-2">
+    <a href=@Url.Action("FirmApplication", new { id = Model.Id }) class="btn btn-success" role="button">Confirm</a>
+    <a href=@Url.Action("ApplicationsByApplicantId", new { id = Model.ApplicantId }) class="btn btn-default" role="button">Cancel</a>
+</div>
+
