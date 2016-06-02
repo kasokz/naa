@@ -52,13 +52,13 @@ namespace NAA.Controllers
 
         public ActionResult Details(int id)
         {
-            return View(_applicationService.getApplicationById(id));
+            return View(_applicationService.GetApplicationDetailsBEANByApplicantId(id));
         }
 
         public ActionResult ApplicationsByApplicantId(int id)
         {
             ViewBag.applicantId = id;
-            return View(_applicationService.GetApplicationBEANsByApplicantId(id));
+            return View(_applicationService.GetApplicationListItemBEANSByApplicantId(id));
         }
     }
 }

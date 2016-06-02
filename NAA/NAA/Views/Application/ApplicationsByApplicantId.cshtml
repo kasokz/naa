@@ -1,4 +1,4 @@
-﻿@model IEnumerable<NAA.Data.BEANS.ApplicationBEAN>
+﻿@model IEnumerable<NAA.Data.BEANS.ApplicationListItemBEAN>
 
 @{
     ViewBag.Title = "ApplicationsByApplicantId";
@@ -7,21 +7,15 @@
 <h2>ApplicationsByApplicantId</h2>
 
 <p>
-    @Html.ActionLink("Create Application", "AddApplication", new { applicantId = ViewBag.applicantId })
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.ApplicantName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CourseName)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.UniversityName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PersonalStatement)
+            @Html.DisplayNameFor(model => model.CourseName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.UniversityOffer)
@@ -35,16 +29,10 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.ApplicantName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CourseName)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.UniversityName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PersonalStatement)
+            @Html.DisplayFor(modelItem => item.CourseName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.UniversityOffer)
