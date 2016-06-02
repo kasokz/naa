@@ -58,7 +58,6 @@ namespace NAA.Services.Service
         {
             Application result = new Application();
             result.CourseName = application.CourseName;
-            result.Firm = false;
             result.PersonalStatement = application.PersonalStatement;
             result.TeacherContactDetails = application.TeacherContacts;
             result.UniversityId = application.UniversityId;
