@@ -38,8 +38,8 @@ namespace NAA.Data.DAO
         {
             University currentUni = (from uni
                             in _context.University
-                              where uni.UniversityId == university.UniversityId
-                              select uni).First();
+                                     where uni.UniversityId == university.UniversityId
+                                     select uni).First();
             currentUni.UniversityId = university.UniversityId;
             currentUni.UniversityName = university.UniversityName;
             _context.SaveChanges();
