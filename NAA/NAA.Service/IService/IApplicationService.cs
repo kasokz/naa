@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
 namespace NAA.Services.IService
 {
     public interface IApplicationService
@@ -13,6 +12,8 @@ namespace NAA.Services.IService
         IList<Application> getApplications();
 
         Application getApplicationById(int id);
+
+        IList<Application> GetApplicationsByApplicantId(int id);
 
         void AddApplication(Application application);
 

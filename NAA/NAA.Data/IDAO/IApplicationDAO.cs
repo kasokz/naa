@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace NAA.Data.IDAO
 {
     public interface IApplicationDAO
@@ -11,6 +12,8 @@ namespace NAA.Data.IDAO
         IList<Application> GetApplications();
 
         Application GetApplicationById(int id);
+
+        IList<Application> GetApplicationsByApplicantId(int id);
 
         void AddApplication(Application application);
 
