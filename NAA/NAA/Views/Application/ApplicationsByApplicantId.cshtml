@@ -4,10 +4,10 @@
     ViewBag.Title = "ApplicationsByApplicantId";
 }
 
-<h2>ApplicationsByApplicantId</h2>
+<h2>My Applications</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Add Application", "AddApplication", new { applicantId = ViewBag.applicantId })
 </p>
 <table class="table">
     <tr>

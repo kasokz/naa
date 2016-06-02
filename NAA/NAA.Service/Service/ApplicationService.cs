@@ -49,7 +49,7 @@ namespace NAA.Services.Service
             _applicationDAO.AddApplication(application);
         }
 
-        public void AddApplication(ApplicationFormBEAN application, int applicantId)
+        public void AddApplication(ApplicationFormBEAN application)
         {
             Application result = new Application();
             result.CourseName = application.CourseName;
@@ -58,7 +58,8 @@ namespace NAA.Services.Service
             result.TeacherContactDetails = application.TeacherContacts;
             result.UniversityId = application.UniversityId;
             result.UniversityOffer = "P";
-            result.ApplicantId = applicantId;
+            result.ApplicantId = application.ApplicantId;
+            result.Firm = false;
             _applicationDAO.AddApplication(result);
         }
 

@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using NAA.Data.IDAO;
 using NAA.Data.BEANS;
+using System.Data.Entity.Validation;
+using System.Diagnostics;
 
 namespace NAA.Data.DAO
 {
@@ -81,8 +83,23 @@ namespace NAA.Data.DAO
 
         public void AddApplication(Application application)
         {
-            _context.Application.Add(application);
-            _context.SaveChanges();
+            try
+            {
+                _context.Application.Add(application);
+                _context.SaveChanges();
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        Trace.TraceInformation("Property: {0} Error: {1}",
+                                                validationError.PropertyName,
+                                                validationError.ErrorMessage);
+                    }
+                }
+            }
         }
 
         public void DeleteApplicationById(int id)

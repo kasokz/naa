@@ -10,6 +10,8 @@ namespace NAA.Data.BEANS
     {
         public int Id { get; set; }
 
+        public int ApplicantId { get; set; }
+
         public int UniversityId { get; set; }
 
         public string CourseName { get; set; }
