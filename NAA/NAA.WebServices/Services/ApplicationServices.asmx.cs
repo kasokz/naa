@@ -36,26 +36,38 @@ namespace NAA.WebServices.Services
         public void RejectApplication(int id, string reason)
         {
             Application application = _applicationService.GetApplicationById(id);
-            application.UniversityOffer = "R"; //Rejected
-            application.TeacherReference = reason;
-            _applicationService.EditApplication(application);
+            //Always possible except for Unconditional Offer
+            if (application.UniversityOffer != "U")
+            {
+                application.UniversityOffer = "R"; //Rejected
+                application.TeacherReference = reason;
+                _applicationService.EditApplication(application);
+            }
         }
 
         [WebMethod]
         public void AcceptApplication(int id)
         {
             Application application = _applicationService.GetApplicationById(id);
-            application.UniversityOffer = "U"; //Unconditional
-            _applicationService.EditApplication(application);
+            //Always possible except for Rejected Offer
+            if (application.UniversityOffer != "R")
+            {
+                application.UniversityOffer = "U"; //Unconditional
+                _applicationService.EditApplication(application);
+            }
         }
 
         [WebMethod]
         public void AcceptApplicationWithCondition(int id, string condition)
         {
             Application application = _applicationService.GetApplicationById(id);
-            application.UniversityOffer = "C"; //Conditional
-            application.TeacherReference = condition;
-            _applicationService.EditApplication(application);
+            //Always possible except for Unconditional Offer
+            if (application.UniversityOffer != "U")
+            {
+                application.UniversityOffer = "C"; //Conditional
+                application.TeacherReference = condition;
+                _applicationService.EditApplication(application);
+            }
         }
     }
 }
