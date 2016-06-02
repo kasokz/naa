@@ -240,6 +240,7 @@
     <Content Include="Views\Application\ApplicationsByApplicantId.cshtml" />
     <Content Include="Views\Application\Details.cshtml" />
     <Content Include="Views\Application\AddApplication.cshtml" />
+    <Content Include="Views\University\ChooseUniversity.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

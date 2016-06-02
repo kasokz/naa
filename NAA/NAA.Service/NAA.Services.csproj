@@ -52,10 +52,6 @@
       <Project>{88da4722-4d52-435b-946e-167a232acf7c}</Project>
       <Name>NAA.Data</Name>
     </ProjectReference>
-    <ProjectReference Include="..\University.Services\University.Services.csproj">
-      <Project>{f8f7ff5e-343a-4bef-b8d8-d32bdc302332}</Project>
-      <Name>University.Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

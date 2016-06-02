@@ -18,6 +18,7 @@ namespace NAA.Controllers
         public ApplicationController()
         {
             _applicationService = new ApplicationService();
+            _universityService = new UniversityService();
         }
 
         // GET: Application
@@ -27,19 +28,10 @@ namespace NAA.Controllers
         }
 
         // GET: Application/AddApplication
-        public ActionResult AddApplication(int applicantId)
+        public ActionResult AddApplication(int applicantId, int universityId)
         {
-            IList<SelectListItem> universityList = new List<SelectListItem>();
-            foreach (var item in _universityService.GetUniversities())
-            {
-                universityList.Add(
-                    new SelectListItem()
-                    {
-                        Text = item.UniversityName,
-                        Value = item.UniversityId.ToString()
-                    });
-            }
-            ViewBag.universityList = universityList;
+            ViewBag.universityName = _universityService.GetUniversityById(universityId).UniversityName;
+
             return View();
         }
 
