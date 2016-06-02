@@ -26,11 +26,11 @@ namespace NAA.Service.Service
         {
             _applicantDAO.DeleteApplicantById(id);
         }
-        void EditApplicant(Applicant applicant)
+        public void EditApplicant(Applicant applicant)
         {
             _applicantDAO.EditApplicant(applicant);
         }
-        void GetApplicantById(int id)
+        public void GetApplicantById(int id)
         {
             _applicantDAO.GetApplicantById(id);
         }

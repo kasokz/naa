@@ -18,6 +18,11 @@ namespace NAA.Service.Service
             _applicationDAO = new ApplicationDAO();
         }
 
+        public IList<Application> getApplications()
+        {
+            return _applicationDAO.GetApplications();
+        }
+
         public Application getApplicationById(int id)
         {
             return _applicationDAO.GetApplicationById(id);
