@@ -54,8 +54,9 @@
     <Compile Include="Application.cs">
       <DependentUpon>NAADataModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="BEANS\ApplicationBEAN.cs" />
+    <Compile Include="BEANS\ApplicationDetailsBEAN.cs" />
     <Compile Include="BEANS\ApplicationFormBEAN.cs" />
+    <Compile Include="BEANS\ApplicationListItemBEAN.cs" />
     <Compile Include="DAO\ApplicantDAO.cs" />
     <Compile Include="DAO\ApplicationDAO.cs" />
     <Compile Include="DAO\NAADAO.cs" />
