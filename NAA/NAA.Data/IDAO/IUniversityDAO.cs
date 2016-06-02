@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace NAA.Data.IDAO
 {
-    interface IUniversityDAO
+    public interface IUniversityDAO
     {
         public IList<University> GetUniversity();
 
