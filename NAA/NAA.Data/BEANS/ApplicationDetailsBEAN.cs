@@ -9,6 +9,7 @@ namespace NAA.Data.BEANS
     public class ApplicationDetailsBEAN
     {
         public int Id { get; set; }
+        public int ApplicantId { get; set; }
         public string ApplicantName { get; set; }
         public string CourseName { get; set; }
         public string UniversityName { get; set; }
