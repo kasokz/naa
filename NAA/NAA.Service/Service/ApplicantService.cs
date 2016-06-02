@@ -30,9 +30,9 @@ namespace NAA.Services.Service
         {
             _applicantDAO.EditApplicant(applicant);
         }
-        public void GetApplicantById(int id)
+        public Applicant GetApplicantById(int id)
         {
-            _applicantDAO.GetApplicantById(id);
+            return _applicantDAO.GetApplicantById(id);
         }
 
     }
