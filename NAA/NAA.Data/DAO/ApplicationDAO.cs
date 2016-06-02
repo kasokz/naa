@@ -35,6 +35,16 @@ namespace NAA.Data.DAO
             return applicationResult.First();
         }
 
+        public IList<Application> GetApplicationsByApplicantId(int id)
+        {
+            IQueryable<Application> applicationResult;
+            applicationResult = from application
+                                in _context.Application
+                                where application.ApplicantId == id
+                                select application;
+            return applicationResult.ToList();
+        }
+
         public void AddApplication(Application application)
         {
             _context.Application.Add(application);
