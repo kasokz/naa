@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using NAA.Data.IDAO;
+using NAA.Data.BEANS;
 
 namespace NAA.Data.DAO
 {
@@ -43,6 +44,28 @@ namespace NAA.Data.DAO
                                 where application.ApplicantId == id
                                 select application;
             return applicationResult.ToList();
+        }
+
+        public IList<ApplicationBEAN> GetApplicationBEANsByApplicantId(int id)
+        {
+            IQueryable<ApplicationBEAN> _ApplicationBEANs;
+            _ApplicationBEANs = from application in _context.Application
+                                from applicant in _context.Applicant
+                                from university in _context.University
+                                where application.ApplicantId == id
+                                where applicant.Id == id
+                                where university.UniversityId == application.UniversityId
+                                select new ApplicationBEAN
+                                {
+                                    Id = application.Id,
+                                    ApplicantName = applicant.ApplicantName,
+                                    CourseName = application.CourseName,
+                                    UniversityName = university.UniversityName,
+                                    PersonalStatement = application.PersonalStatement,
+                                    UniversityOffer = application.UniversityOffer,
+                                    Firm = application.Firm
+                                };
+            return _ApplicationBEANs.ToList();
         }
 
         public void AddApplication(Application application)

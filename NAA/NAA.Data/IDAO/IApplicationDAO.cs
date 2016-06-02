@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NAA.Data.BEANS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace NAA.Data.IDAO
         Application GetApplicationById(int id);
 
         IList<Application> GetApplicationsByApplicantId(int id);
+
+        IList<ApplicationBEAN> GetApplicationBEANsByApplicantId(int id);
 
         void AddApplication(Application application);
 

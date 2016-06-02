@@ -14,15 +14,7 @@ namespace NAA.Data.BEANS
         public string CourseName { get; set; }
         public string UniversityName { get; set; }
         public string PersonalStatement { get; set; }
-        public UniversityOffer UniversityOffer { get; set; }
-        public bool Firm { get; set; }
+        public string UniversityOffer { get; set; }
+        public bool? Firm { get; set; }
     }
-
-    public enum UniversityOffer
-    {
-        R = "Reject",
-        P = "Pending",
-        C = "Conditional",
-        U = "Unconditional"
-    };
 }

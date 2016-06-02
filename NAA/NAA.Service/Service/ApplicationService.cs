@@ -30,7 +30,7 @@ namespace NAA.Services.Service
 
         public IList<Application> GetApplicationsByApplicantId(int id)
         {
-            return _applicationDAO.GetApplicationsByApplicantId(id);
+            return _applicationDAO.GetApplicationBEANsByApplicantId(id);
         }
 
         public void AddApplication(Application application)
