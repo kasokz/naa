@@ -12,8 +12,7 @@ namespace NAA.Services.IService
         void AddApplicant(Applicant applicant);
         void DeleteApplicantById(int id);
         void EditApplicant(Applicant applicant);
-        void GetApplicantById(int id);
-
+        Applicant GetApplicantById(int id);
 
     }
 }

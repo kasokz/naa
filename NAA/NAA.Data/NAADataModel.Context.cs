@@ -28,5 +28,7 @@ namespace NAA.Data
         public virtual DbSet<Applicant> Applicant { get; set; }
         public virtual DbSet<Application> Application { get; set; }
         public virtual DbSet<University> University { get; set; }
+
+        public System.Data.Entity.DbSet<NAA.Data.BEANS.ApplicationFormBEAN> ApplicationFormBEANs { get; set; }
     }
 }

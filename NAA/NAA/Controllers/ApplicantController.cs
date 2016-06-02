@@ -27,8 +27,8 @@ namespace NAA.Controllers
 
         // GET: Applicant/Details/5
         public ActionResult Details(int id)
-        {
-            return View();
+        {          
+            return View(_applicantService.GetApplicantById(id));
         }
 
         // GET: Applicant/AddApplicant
@@ -42,7 +42,8 @@ namespace NAA.Controllers
         [HttpPost]
         public ActionResult AddApplicant(Applicant applicant)
         {
-            return View();
+            _applicantService.AddApplicant(applicant);
+            return RedirectToAction("Details", new { id = applicant.Id});
         }
 
         // GET: Applicant/EditApplicant/5
