@@ -49,7 +49,7 @@ namespace NAA.Controllers
         // GET: Applicant/EditApplicant/5
         public ActionResult EditApplicant(int id)
         {
-            return View();
+            return View(_applicantService.GetApplicantById(id));
         }
 
         // POST: Applicant/EditApplicant/5
