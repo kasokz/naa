@@ -46,13 +46,13 @@ namespace NAA.Controllers
         [HttpPost]
         public ActionResult AddApplication(ApplicationFormBEAN application)
         {
-            // Save to Database, write function that accepts ApplicationFormBEAN
-            return RedirectToAction("Details", new { id = application.Id });
+            _applicationService.AddApplication(application);
+            return RedirectToAction("ApplicationsByApplicantId", new { id = application.ApplicantId });
         }
 
         public ActionResult Details(int id)
         {
-            return View(_applicationService.GetApplicationDetailsBEANByApplicantId(id));
+            return View(_applicationService.GetApplicationDetailsBEANById(id));
         }
 
         public ActionResult ApplicationsByApplicantId(int id)
