@@ -23,6 +23,9 @@ namespace NAA.Controllers
             return View(_applicationService.getApplications());
         }
 
-
+        public ActionResult ApplicationsByApplicantId(int id)
+        {
+            return View(_applicationService.GetApplicationsByApplicantId(id));
+        }
     }
 }
