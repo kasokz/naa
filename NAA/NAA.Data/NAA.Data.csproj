@@ -89,8 +89,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>NAADataModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.Config" />
     <None Include="NAADataModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
