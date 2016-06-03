@@ -1,7 +1,7 @@
 ﻿@model NAA.Data.BEANS.UniversitySelectionBEAN
 
 @{
-    ViewBag.Title = "ChooseUniversity";
+    ViewBag.Title = "University Selection";
 }
 
 <h2>University Selection</h2>
@@ -39,7 +39,7 @@
 }
 
 <div>
-    @Html.ActionLink("Cancel", "ApplicationsByApplicantId", new { id = ViewBag.applicantId, Controller = "Application" })
+    <a href=@Url.Action("ApplicationsByApplicantId", new { id = ViewBag.applicantId, Controller = "Application" }) class="btn btn-default" role="button">Cancel</a>
 </div>
 
 @section Scripts {
