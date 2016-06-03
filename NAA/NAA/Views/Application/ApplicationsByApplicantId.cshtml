@@ -31,31 +31,33 @@
 
     @foreach (var item in Model)
     {
+
         <tr>
-            <td>
+            <td style="vertical-align: middle">
                 @Html.DisplayFor(modelItem => item.UniversityName)
             </td>
-            <td>
+            <td style="vertical-align: middle">
                 @Html.DisplayFor(modelItem => item.CourseName)
             </td>
-            <td>
+            <td style="vertical-align: middle">
                 @Html.DisplayFor(modelItem => item.UniversityOffer)
             </td>
-            <td>
+            <td style="vertical-align: middle">
                 @Html.DisplayFor(modelItem => item.Firm)
             </td>
-            <td>
-                <a href=@Url.Action("InitFirm", new { id = item.Id }) class="btn btn-default" role="button">
-                    Firm
-                </a> |
-                <a href=@Url.Action("Details", new { id = item.Id }) class="btn btn-default" role="button">
-                    <img src="~/Content/images/details.png" alt="Add" style="height:20px; width:20px" vspace="2" /> Details
-                </a> |
-                <a href=@Url.Action("InitDelete", new { id = item.Id }) class="btn btn-default" role="button">
-                    <img src="~/Content/images/delete.png" alt="Add" style="height:20px; width:20px" vspace="2" /> Delete
-                </a>
-            </td>
+                <td>
+                    <a href=@Url.Action("InitFirm", new { id = item.Id }) class="btn btn-default" role="button">
+                        Firm
+                    </a>
+                    <a href=@Url.Action("Details", new { id = item.Id }) class="btn btn-default" role="button">
+                        <img src="~/Content/images/details.png" alt="Add" style="height:20px; width:20px" vspace="2" /> Details
+                    </a>
+                    <a href=@Url.Action("InitDelete", new { id = item.Id }) class="btn btn-default" role="button">
+                        <img src="~/Content/images/delete.png" alt="Add" style="height:20px; width:20px" vspace="2" /> Delete
+                    </a>
+                </td>
         </tr>
+
     }
 
 </table>
