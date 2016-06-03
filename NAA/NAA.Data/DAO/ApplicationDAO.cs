@@ -36,8 +36,8 @@ namespace NAA.Data.DAO
             IQueryable<Application> _applicationResult;
             _applicationResult = from application
                                 in _context.Application
-                                where application.ApplicantId == id
-                                select application;
+                                 where application.ApplicantId == id
+                                 select application;
             return _applicationResult.ToList();
         }
 
@@ -140,8 +140,8 @@ namespace NAA.Data.DAO
         {
             Application currentApplication = (from currApplication
                                              in _context.Application
-                                             where currApplication.Id == application.Id
-                                             select currApplication).First();
+                                              where currApplication.Id == application.Id
+                                              select currApplication).First();
             currentApplication.PersonalStatement = application.PersonalStatement;
             currentApplication.TeacherContactDetails = application.TeacherContactDetails;
             currentApplication.TeacherReference = application.TeacherReference;
@@ -151,6 +151,27 @@ namespace NAA.Data.DAO
             currentApplication.ApplicantId = application.ApplicantId;
             currentApplication.CourseName = application.CourseName;
             _context.SaveChanges();
+        }
+
+        public string GetNamefulUniversityOffer(string flag)
+        {
+            string result = "";
+            switch (flag)
+            {
+                case "P":
+                    result = "Pending";
+                    break;
+                case "U":
+                    result = "Unconditional";
+                    break;
+                case "C":
+                    result = "Conditional";
+                    break;
+                case "R":
+                    result = "Rejected";
+                    break;
+            }
+            return result;
         }
     }
 }

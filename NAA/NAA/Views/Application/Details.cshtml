@@ -7,7 +7,6 @@
 <h2>Details</h2>
 
 <div>
-    <h4>ApplicationDetailsBEAN</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -80,11 +79,11 @@
     <a href=@Url.Action("InitFirm", new { id = Model.Id }) class="btn btn-default" role="button">
         Firm
     </a>
-    <a href=@Url.Action("InitDelete", new { id = Model.Id }) class="btn btn-default" role="button">
-        <img src="~/Content/images/delete.png" alt="Add" style="height:20px; width:20px" vspace="2" /> Delete
+    <a href=@Url.Action("InitDelete", new { id = Model.Id }) class="btn btn-danger" role="button">
+        Delete
     </a>
     <a href=@Url.Action("ApplicationsByApplicantId", new { id = Model.ApplicantId }) class="btn btn-default" role="button">
-        <img src="~/Content/images/details.png" alt="Add" style="height:20px; width:20px" vspace="2" /> Back to List
+        Back to List
     </a>
 </p>
 
