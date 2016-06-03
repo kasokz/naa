@@ -53,6 +53,7 @@ namespace NAA.WebServices.Services
             if (application.UniversityOffer == "P")
             {
                 application.UniversityOffer = "U"; //Unconditional
+                application.UniversityComment = "Accepted without Condition. Congratulations!";
                 _applicationService.EditApplication(application);
             }
         }
