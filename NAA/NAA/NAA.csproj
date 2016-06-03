@@ -238,11 +238,11 @@
     <Content Include="Views\Applicant\Details.cshtml" />
     <Content Include="Views\Applicant\EditApplicant.cshtml" />
     <Content Include="Views\Application\ApplicationsByApplicantId.cshtml" />
-    <Content Include="Views\Application\Details.cshtml" />
     <Content Include="Views\Application\AddApplication.cshtml" />
     <Content Include="Views\University\ChooseUniversity.cshtml" />
     <Content Include="Views\Application\DeleteApplication.cshtml" />
     <Content Include="Views\Application\InitFirm.cshtml" />
+    <Content Include="Views\Application\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
