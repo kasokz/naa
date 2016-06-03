@@ -57,7 +57,7 @@
 }
 
 <div>
-    @Html.ActionLink("Cancel", "Details", new { id = Model.Id } )
+    <a href=@Url.Action("Details", new { id = Model.Id }) class="btn btn-default" role="button">Cancel</a>
 </div>
 
 @section Scripts {
