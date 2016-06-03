@@ -105,24 +105,9 @@ namespace NAA.Controllers
 
         public ActionResult InitFirm(int id) {
             ApplicationDetailsBEAN applicationBEAN = _applicationService.GetApplicationDetailsBEANById(id);
-            ActionResult result= null;
-            if (applicationBEAN.UniversityOffer == "C" || applicationBEAN.UniversityOffer == "U")
-            {
-                foreach (var item in _applicationService.GetApplicationsByApplicantId(applicationBEAN.ApplicantId))
-                {
-                    if (item.Firm == true)
-                    {
-                        result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
-                    }
-                }
-                if (result == null)
-                {
-                    result = View(applicationBEAN);
-                }
-            }
-            else
-            {
-                result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
+            ActionResult result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
+            if (_applicationService.ApplicationIsFirmable(id)) {
+                 result = View(applicationBEAN);
             }
             return result;
         }

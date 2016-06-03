@@ -88,5 +88,28 @@ namespace NAA.Services.Service
             ApplicationDetailsBEAN applicationBEAN = GetApplicationDetailsBEANById(id);
             return (applicationBEAN.UniversityOffer != "P" || applicationBEAN.Firm == true) ? false : true;
         }
+        public bool ApplicationIsFirmable(int id)
+        {
+            ApplicationDetailsBEAN applicationBEAN = GetApplicationDetailsBEANById(id);
+            bool firmable = false;
+            if (applicationBEAN.UniversityOffer == "C" || applicationBEAN.UniversityOffer == "U")
+            {
+                firmable = ApplicationIsAlreadyFirmed(id);
+            }
+            return firmable;
+        }
+
+        public bool ApplicationIsAlreadyFirmed(int id)
+        {
+            ApplicationDetailsBEAN applicationBEAN = GetApplicationDetailsBEANById(id);
+            foreach (var item in GetApplicationsByApplicantId(applicationBEAN.ApplicantId))
+            {
+                if (item.Firm == true)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
     }
 }

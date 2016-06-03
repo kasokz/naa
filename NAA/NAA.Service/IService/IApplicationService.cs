@@ -31,6 +31,9 @@ namespace NAA.Services.IService
         void EditApplication(Application application);
 
         void FirmApplication(int id);
+
         bool ApplicationIsDeletable(int id);
+
+        bool ApplicationIsFirmable(int id);
     }
 }
