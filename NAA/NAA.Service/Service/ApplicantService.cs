@@ -44,5 +44,10 @@ namespace NAA.Services.Service
         {
             return _applicantDAO.GetApplicants();
         }
+
+        public bool NoApplicants()
+        {
+            return (_applicantDAO.GetApplicants().Count() == 0) ? true : false;
+        }
     }
 }
