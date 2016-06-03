@@ -1,13 +1,12 @@
 ﻿@model NAA.Data.Applicant
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Profile Details";
 }
 
-<h2>Details</h2>
+<h2>My Profile</h2>
 
 <div>
-    <h4>Applicant</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -44,7 +43,8 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "EditApplicant", new { id = Model.Id }) |
-    @Html.ActionLink("My Applications", "ApplicationsByApplicantId", new { id = Model.Id, Controller = "Application" })
-</p>
+<div >
+    <a href=@Url.Action("EditApplicant", new { id = Model.Id }) class="btn btn-default" role="button">
+    <img src="~/Content/images/edit.png" alt="Edit" style="height:20px; width:20px" vspace="2"/> Edit Profile</a>
+    <a href=@Url.Action("ApplicationsByApplicantId", new { id = Model.Id, Controller = "Application" }) class="btn btn-default" role="button">My Applications</a>
+</div>
