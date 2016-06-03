@@ -13,7 +13,7 @@ namespace NAA.Services.Service
     public class ApplicationService : IApplicationService
     {
         private ApplicationDAO _applicationDAO;
-
+        public const int MAXAPPLICATIONS = 5;
         public ApplicationService()
         {
             _applicationDAO = new ApplicationDAO();
@@ -82,6 +82,11 @@ namespace NAA.Services.Service
             Application application = _applicationDAO.GetApplicationById(id);
             application.Firm = true;
             EditApplication(application);
+        }
+        public bool ApplicationIsDeletable(int id)
+        {
+            ApplicationDetailsBEAN applicationBEAN = GetApplicationDetailsBEANById(id);
+            return (applicationBEAN.UniversityOffer != "P" || applicationBEAN.Firm == true) ? false : true;
         }
     }
 }
