@@ -11,13 +11,28 @@ namespace NAA.Data
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class Applicant
     {
         public int Id { get; set; }
+
+        [Display(Name = "Name")]
+        [Required(ErrorMessage ="Name is required!")]
         public string ApplicantName { get; set; }
+
+        [Display(Name = "Address")]
+        [Required(ErrorMessage = "Address is required!")]
         public string ApplicantAddress { get; set; }
+
+        [Display(Name = "Phone Number")]
+        [Required(ErrorMessage = "Phone Number is required!")]
+        [RegularExpression(@"[0-9]*", ErrorMessage = "Entered phone format is not valid.")]
         public string Phone { get; set; }
+
+        [Display(Name = "Email Address")]
+        [Required(ErrorMessage = "Email is required!")]
+        [EmailAddress(ErrorMessage = "Invalid Email Address")]
         public string Email { get; set; }
     }
 }
