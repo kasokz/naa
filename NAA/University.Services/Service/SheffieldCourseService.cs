@@ -36,7 +36,19 @@ namespace University.Services.Service
 
         public IList<CourseFullBEAN> GetAllCoursesFull()
         {
-            throw new NotImplementedException();
+            IList<CourseFullBEAN> _courseFullBEANs = new List<CourseFullBEAN>();
+            foreach (var item in _proxy.GetCoursesFullDetails())
+            {
+                _courseFullBEANs.Add(new CourseFullBEAN
+                {
+                    Id = item.Id,
+                    Name = item.Name,
+                    EntryCriteria = item.Tarif.ToString(),
+                    Description = item.Description,
+                    Notes = item.EntryReq
+                });
+            }
+            return _courseFullBEANs;
         }
     }
 }
