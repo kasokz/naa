@@ -77,8 +77,14 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Firm", "InitFirm", new { id = Model.Id }) |
-    @Html.ActionLink("Delete", "InitDelete", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "ApplicationsByApplicantId", new { id = Model.ApplicantId })
+    <a href=@Url.Action("InitFirm", new { id = Model.Id }) class="btn btn-default" role="button">
+        Firm
+    </a>
+    <a href=@Url.Action("InitDelete", new { id = Model.Id }) class="btn btn-default" role="button">
+        <img src="~/Content/images/delete.png" alt="Add" style="height:20px; width:20px" vspace="2" /> Delete
+    </a>
+    <a href=@Url.Action("ApplicationsByApplicantId", new { id = Model.ApplicantId }) class="btn btn-default" role="button">
+        <img src="~/Content/images/details.png" alt="Add" style="height:20px; width:20px" vspace="2" /> Back to List
+    </a>
 </p>
 
