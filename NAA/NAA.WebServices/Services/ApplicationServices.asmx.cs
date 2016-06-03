@@ -40,7 +40,7 @@ namespace NAA.WebServices.Services
             if (application.UniversityOffer != "U")
             {
                 application.UniversityOffer = "R"; //Rejected
-                application.TeacherReference = reason;
+                application.UniversityComment = reason;
                 _applicationService.EditApplication(application);
             }
         }
@@ -65,7 +65,7 @@ namespace NAA.WebServices.Services
             if (application.UniversityOffer != "U")
             {
                 application.UniversityOffer = "C"; //Conditional
-                application.TeacherReference = condition;
+                application.UniversityComment = condition;
                 _applicationService.EditApplication(application);
             }
         }
