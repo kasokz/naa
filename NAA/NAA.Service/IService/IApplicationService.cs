@@ -35,5 +35,7 @@ namespace NAA.Services.IService
         bool ApplicationIsDeletable(int id);
 
         bool ApplicationIsFirmable(int id);
+
+        bool CourseIsAlreadyAppliedFor(ApplicationFormBEAN application);
     }
 }

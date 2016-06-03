@@ -111,5 +111,18 @@ namespace NAA.Services.Service
             }
             return true;
         }
+
+        public bool CourseIsAlreadyAppliedFor(ApplicationFormBEAN application)
+        {
+            bool courseIsAlreadyAppliedFor = false;
+            foreach (var item in GetApplicationsByApplicantId(application.ApplicantId))
+            {
+                if (item.CourseName == application.CourseName && item.UniversityId == application.UniversityId)
+                {
+                    courseIsAlreadyAppliedFor = true;
+                }
+            }
+            return courseIsAlreadyAppliedFor;
+        }
     }
 }
