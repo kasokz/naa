@@ -14,5 +14,6 @@ namespace NAA.Services.IService
         void EditApplicant(Applicant applicant);
         Applicant GetApplicantById(int id);
         IList<Applicant> GetApplicants();
+        bool NoApplicants();
     }
 }

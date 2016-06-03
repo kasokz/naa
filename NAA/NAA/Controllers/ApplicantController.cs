@@ -23,7 +23,7 @@ namespace NAA.Controllers
         public ActionResult Index()
         {
             ActionResult result;
-            if(_applicantService.GetApplicants().Count() == 0)
+            if(_applicantService.NoApplicants())
             {
                result = RedirectToAction("AddApplicant");
             } else 
@@ -67,28 +67,6 @@ namespace NAA.Controllers
         {
             _applicantService.EditApplicant(applicant);
             return RedirectToAction("Details", new { id = applicant.Id });
-        }
-
-        // GET: Applicant/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Applicant/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
         }
     }
 }
