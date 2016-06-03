@@ -17,7 +17,6 @@ namespace NAA.Data.BEANS
         public string PersonalStatement { get; set; }
         public string TeacherReference { get; set; }
         public string TeacherContactDetails { get; set; }
-
         public string UniversityOffer { get; set; }
         public bool? Firm { get; set; }
         public ApplicationBEAN() { }
