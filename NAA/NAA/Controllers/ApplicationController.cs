@@ -55,15 +55,7 @@ namespace NAA.Controllers
         [HttpPost]
         public ActionResult AddApplication(ApplicationFormBEAN application)
         {
-            bool courseIsAlreadyAppliedFor = false;
-            foreach (var item in _applicationService.GetApplicationsByApplicantId(application.ApplicantId))
-            {
-                if (item.CourseName == application.CourseName && item.UniversityId == application.UniversityId)
-                {
-                    courseIsAlreadyAppliedFor = true;
-                }
-            }
-            if (!courseIsAlreadyAppliedFor)
+            if (!_applicationService.CourseIsAlreadyAppliedFor(application))
             {
                 _applicationService.AddApplication(application);
             }
