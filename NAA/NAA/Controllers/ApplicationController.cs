@@ -85,7 +85,7 @@ namespace NAA.Controllers
         {
             ApplicationDetailsBEAN applicationBEAN = _applicationService.GetApplicationDetailsBEANById(id);
             ActionResult result;
-            if (applicationBEAN.UniversityOffer == "U" || applicationBEAN.UniversityOffer == "C" || applicationBEAN.Firm == true)
+            if (applicationBEAN.UniversityOffer != "P" || applicationBEAN.Firm == true)
             {
                 result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
             }
