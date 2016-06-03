@@ -23,5 +23,6 @@ namespace NAA.Data
         public string TeacherContactDetails { get; set; }
         public string UniversityOffer { get; set; }
         public Nullable<bool> Firm { get; set; }
+        public string UniversityComment { get; set; }
     }
 }

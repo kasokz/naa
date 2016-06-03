@@ -85,7 +85,8 @@ namespace NAA.Data.DAO
                                     UniversityName = university.UniversityName,
                                     PersonalStatement = application.PersonalStatement,
                                     UniversityOffer = application.UniversityOffer,
-                                    Firm = application.Firm
+                                    Firm = application.Firm,
+                                    UniversityComment = application.UniversityComment
                                 };
             return _ApplicationBEANs.First();
         }

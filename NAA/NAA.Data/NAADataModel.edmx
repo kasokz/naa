@@ -28,6 +28,7 @@
           <Property Name="TeacherContactDetails" Type="nvarchar(max)" Nullable="false" />
           <Property Name="UniversityOffer" Type="char" MaxLength="1" />
           <Property Name="Firm" Type="bit" />
+          <Property Name="UniversityComment" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="University">
           <Key>
@@ -68,6 +69,7 @@
           <Property Name="TeacherContactDetails" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="UniversityOffer" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
           <Property Name="Firm" Type="Boolean" />
+          <Property Name="UniversityComment" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="University">
           <Key>
@@ -101,6 +103,7 @@
           <EntitySetMapping Name="Application">
             <EntityTypeMapping TypeName="NAAModel.Application">
               <MappingFragment StoreEntitySet="Application">
+                <ScalarProperty Name="UniversityComment" ColumnName="UniversityComment" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ApplicantId" ColumnName="ApplicantId" />
                 <ScalarProperty Name="CourseName" ColumnName="CourseName" />
