@@ -24,8 +24,8 @@ namespace NAA.Controllers
 
         public ActionResult CheckApplicationCount(int applicantId)
         {
-            IList<Application> applications = _applicationService.GetApplicationsByApplicantId(applicantId);
-            if (applications.Count < 5) {
+            if (_applicationService.GetApplicationsByApplicantId(applicantId).Count < ApplicationService.MAXAPPLICATIONS) 
+            {
                 return RedirectToAction("ChooseUniversity", new { applicantId = applicantId, Controller = "University" });
             } else {
                 return RedirectToAction("ApplicationsByApplicantId", new { id = applicantId });
@@ -84,16 +84,9 @@ namespace NAA.Controllers
         public ActionResult InitDelete(int id)
         {
             ApplicationDetailsBEAN applicationBEAN = _applicationService.GetApplicationDetailsBEANById(id);
-            ActionResult result;
-            if (applicationBEAN.UniversityOffer != "P" || applicationBEAN.Firm == true)
-            {
-                result = RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
-            }
-            else
-            {
-                result = RedirectToAction("DeleteApplication", new { id = id });
-            }
-            return result;
+            return (_applicationService.ApplicationIsDeletable(id)) ?  
+                RedirectToAction("DeleteApplication", new { id = id }) : 
+                RedirectToAction("ApplicationsByApplicantId", new { id = applicationBEAN.ApplicantId });
         }
 
         [HttpGet]
